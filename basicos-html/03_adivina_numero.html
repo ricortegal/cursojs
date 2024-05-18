@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <title>Adivina el Número</title>
+</head>
+<body>
+    <h1>Adivina el Número</h1>
+    <p>Estoy pensando en un número entre 1 y 100. ¿Puedes adivinar cuál es?</p>
+    <input type="number" id="guess" placeholder="Tu adivinanza">
+    <button onclick="intento()">Enviar</button>
+    <p id="message"></p>
+
+    <script>
+        let numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+        let attempts = 0;
+
+        function intento() {
+            let numeroUsuario = document.getElementById('guess').value;
+            attempts++;
+            if (numeroUsuario == numeroAleatorio) {
+                document.getElementById('message').innerText = `¡Correcto! Lo adivinaste en ${attempts} intentos.`;
+            } else if (numeroUsuario > numeroAleatorio) {
+                document.getElementById('message').innerText = 'Demasiado alto. Inténtalo de nuevo.';
+            } else {
+                document.getElementById('message').innerText = 'Demasiado bajo. Inténtalo de nuevo.';
+            }
+        }
+    </script>
+</body>
+</html>

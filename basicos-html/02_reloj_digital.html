@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <title>Reloj Digital</title>
+    <style>
+        #clock {
+            font-size: 2em;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reloj Digital</h1>
+    <div id="clock"></div>
+    <script>
+        function actualizaReloj() {
+            let now = new Date();
+            let hours = String(now.getHours()).padStart(2, '0');
+            let minutes = String(now.getMinutes()).padStart(2, '0');
+            let seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('clock').innerText = `${hours}:${minutes}:${seconds}`;
+        }
+        setInterval(actualizaReloj, 1000);
+    </script>
+</body>
+</html>

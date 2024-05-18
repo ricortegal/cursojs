@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <title>Calculadora Básica</title>
+    <style>
+        input, button { margin: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Calculadora Básica</h1>
+    <input type="number" id="num1" placeholder="Número 1">
+    <input type="number" id="num2" placeholder="Número 2">
+    <br>
+    <button type="button" onclick="calculate('add')">Sumar</button>
+    <button type="button" onclick="calculate('subtract')">Restar</button>
+    <button type="button" onclick="calculate('multiply')">Multiplicar</button>
+    <button type="button" onclick="calculate('divide')">Dividir</button>
+    <p id="resultado"></p>
+
+    <script>
+        function calculate(operation) {
+            let num1 = parseFloat(document.getElementById('num1').value);
+            let num2 = parseFloat(document.getElementById('num2').value);
+            let resultado;
+            if (operation === 'add') {
+                resultado = num1 + num2;
+            } else if (operation === 'subtract') {
+                resultado = num1 - num2;
+            } else if (operation === 'multiply') {
+                resultado = num1 * num2;
+            } else if (operation === 'divide') {
+                resultado = num1 / num2;
+            }
+            document.getElementById('resultado').innerText = `Resultado: ${resultado}`;
+        }
+    </script>
+</body>
+</html>

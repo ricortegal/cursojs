@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <title>Ejemplo de JavaScript</title>
+</head>
+<body>
+    <h1 id="titulo">¡Hola, Mundo!</h1>
+    <label for="nombre">Dime tu nombre:</label>
+    <input type="text" id="nombre" value="">
+    <button type="button" onclick="muestraNombre()">Haz clic para cambiar el texto</button>
+
+    <script>
+        function muestraNombre() {
+            const nombre = document.getElementById("nombre").value;
+            document.getElementById("titulo").innerText = `¡Hola ${nombre}!`;
+        }
+    </script>
+
+</body>
+</html>
