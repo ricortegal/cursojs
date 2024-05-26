@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bola Rebotando</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            height: 100vh;
+            background-color: #ffdede;
+            position: relative;
+        }
+        .ball {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="ball" id="ball"></div>
+    <script>
+        const ball = document.getElementById('ball');
+        let x = window.innerWidth / 2;
+        let y = window.innerHeight / 2;
+        const radius = 20; // Radio de la bola
+        let dx = 4;
+        let dy = 4;
+
+        function moveBall() {
+            x += dx;
+            y += dy;
+
+            // Verificar colisiones con las paredes
+            if (x + radius > window.innerWidth || x - radius < 0) {
+                dx *= -1;
+            }
+            if (y + radius > window.innerHeight || y - radius < 0) {
+                dy *= -1;
+            }
+
+            ball.style.left = `${x - radius}px`;
+            ball.style.top = `${y - radius}px`;
+
+            requestAnimationFrame(moveBall);
+        }
+
+        moveBall();
+
+        // Manejar el redimensionamiento de la ventana
+        window.addEventListener('resize', () => {
+            if (x + radius > window.innerWidth) {
+                x = window.innerWidth - radius;
+            }
+            if (y + radius > window.innerHeight) {
+                y = window.innerHeight - radius;
+            }
+        });
+    </script>
+</body>
+</html>
