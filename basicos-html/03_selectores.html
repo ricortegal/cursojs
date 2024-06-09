@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .rojo {
+            color: red;
+        }
+    </style>
+    <title>selectores</title>
+</head>
+<body>
+    <h1 id="titulo">Hola</h1>
+    <button id="boton">Púlsame</button>
+    <script>
+        let boton = document.getElementById('boton');
+        let titulo = document.getElementById('titulo');
+        boton.addEventListener('click', function(){
+            titulo.classList.add('rojo');
+        });
+    </script>
+</body>
+</html>
